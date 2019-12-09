@@ -8,6 +8,8 @@
 <head>
 <meta charset="UTF-8">
 <title>상품목록 표시하기</title>
+<script src="js/script.js">
+</script>
 </head>
 <body>
 	<%@include file="menu.jsp" %>
@@ -27,12 +29,15 @@
 				<%=p.getp_name() %><br>
 				<%=p.getp_description() %><br>
 				<%=p.getp_unitprice() %><br>
-				<a href="javascript:productDetail('<%=p.getp_id()%>')">상품정보</a>
+				<a href="javascript:productDetail('<%=p.getp_id()%>')">상품정보
 				</td>
 			<%
 			}
 			%>
 		</tr>
 	</table>
+	<form name="detailFrm" action="productDetail.jsp" method="post">
+		<input type="hidden" name="p_id">
+	</form>
 </body>
 </html>

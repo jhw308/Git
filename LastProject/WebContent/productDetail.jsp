@@ -4,8 +4,8 @@
 <jsp:useBean id="productDAO" class="ex01.ProductDAO" />
 
 <%
-String p_id = request.getParameter("p_id");
-ProductVO vo = productDAO.getProduct(p_id);
+	String p_id = request.getParameter("p_id");
+	ProductVO vo = productDAO.getProduct(p_id);
 %>
 <!DOCTYPE html>
 <html>
@@ -21,15 +21,12 @@ ProductVO vo = productDAO.getProduct(p_id);
 		</tr>			
 	</table>
 	<table style="width: 100%">
-		<tr>
-		<%=vo.getp_name() %><br>
-		<%=vo.getp_id() %><br>
-		<%=vo.getp_manufacturer() %><br>
-		<%=vo.getp_category() %><br>
-		<%=vo.getp_unitsinstock() %><br>
-		<%=vo.getp_unitprice() %>
-		</tr>
-		
+		<tr><td><%=vo.getp_name() %></td></tr>
+		<tr><td><%=vo.getp_id() %></td></tr>
+		<tr><td><%=vo.getp_manufacturer() %></td></tr>
+		<tr><td><%=vo.getp_category() %></td></tr>
+		<tr><td><%=vo.getp_unitsinstock() %></td></tr>
+		<tr><td><%=vo.getp_unitprice() %></td></tr>
 	</table>
 </body>
 </html>

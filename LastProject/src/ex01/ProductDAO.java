@@ -77,7 +77,7 @@ import javax.sql.DataSource;
     } 
  
     public ProductVO getProduct(String p_id) {
-    	ProductVO vo = null;
+    	ProductVO vo = new ProductVO();
     	try {
     		con = dataFactory.getConnection();
     		String sql = "select * from product where p_id=?";
