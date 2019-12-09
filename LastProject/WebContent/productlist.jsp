@@ -14,9 +14,7 @@
 	<table style="width:100%"> 
 		<tr style="font-weight:bold; font-size:80px; background-color:#EAEAEA; height:300px; text-align:left;">
 			<td>&nbsp&nbsp상품목록</td>
-		</tr>		
-		
-		
+		</tr>			
 	</table>
 	<table>
 		<tr style=" font-weight:normal; text-align:center;">
@@ -25,10 +23,11 @@
 			
 			for(ProductVO p:list){
 			%>
-				<td style="width: 320px;height: 65px; border-color:white;">
+				<td style="width: 320px;height: 65px; border-color:white;" >
 				<%=p.getp_name() %><br>
 				<%=p.getp_description() %><br>
-				<%=p.getp_unitprice() %>
+				<%=p.getp_unitprice() %><br>
+				<a href="javascript:productDetail('<%=p.getp_id()%>')">상품정보</a>
 				</td>
 			<%
 			}
