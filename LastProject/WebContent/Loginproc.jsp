@@ -11,7 +11,7 @@
 	
 	if(b){
 		session.setAttribute("idKey", id);
-		response.sendRedirect("loginsuc.jsp");
+		response.sendRedirect("productlist.jsp");
 	}else{
 		response.sendRedirect("loginfail.jsp");
 	}

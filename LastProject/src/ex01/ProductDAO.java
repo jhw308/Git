@@ -76,7 +76,7 @@ import javax.sql.DataSource;
        return list; 
     } 
  
-    public ProductVO getProduct(String p_id) {
+    public ProductVO getProductAll(String p_id) {
     	ProductVO vo = new ProductVO();
     	try {
     		con = dataFactory.getConnection();
@@ -143,7 +143,40 @@ import javax.sql.DataSource;
       } catch (Exception e) { 
           e.printStackTrace(); 
        } 
-    } 
+    }
     
+    public ProductVO getProduct(String p_id) {
+		ProductVO vo = null;
+		try {
+			con = dataFactory.getConnection();
+			String sql = "select * from product where p_id=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, p_id);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				vo = new ProductVO();
+				vo.setp_id(rs.getString("p_id"));
+    			vo.setp_name(rs.getString("p_name"));
+    			vo.setp_unitprice(rs.getInt("p_unitprice"));
+    			vo.setp_description(rs.getString("p_description"));
+    			vo.setp_category(rs.getString("p_category"));
+    			vo.setp_manufacturer(rs.getString("p_manufacturer"));
+    			vo.setp_unitsinstock(rs.getString("p_unitsinstock"));
+    			vo.setp_condition(rs.getString("p_condition"));
+    			vo.setp_filename(rs.getString("p_filename"));
+			}		
+		} catch (Exception e) {
+			System.out.println("getProduct err:" + e);
+		}finally {
+			try {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(con != null) con.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}	
+		}
+		return vo;
+	}    
 
  } 

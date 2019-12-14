@@ -15,7 +15,7 @@
 	</table>
 	<table style="width:100%">
 		<tr style="height:50px; font-weight:bold; font-size:60px; text-align:center;">
-			<td><h8>전현우(20180966), 이재준(1)</h8></td>
+			<td><h8>전현우(20180966), 이재준(20181576)</h8></td>
 		</tr>
 	</table>
 	<%@include file="footer.jsp" %>
